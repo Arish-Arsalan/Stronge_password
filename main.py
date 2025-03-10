@@ -39,34 +39,37 @@ def main():
     st.markdown("""
         <style>
             body {
-                background: linear-gradient(135deg, #0F2027, #203A43, #2C5364);
+                background: linear-gradient(135deg, #1A1A2E, #16213E, #0F3460);
                 font-family: 'Poppins', sans-serif;
-                color: #EAEAEA;
+                color: #FFFFFF;
             }
             .title {
                 text-align: center;
-                color: #FF4081;
-                font-size: 50px;
+                color: #FF9800;
+                font-size: 52px;
                 font-weight: bold;
-                text-shadow: 4px 4px 20px rgba(255, 64, 129, 0.8);
+                text-shadow: 4px 4px 20px rgba(255, 152, 0, 0.8);
                 margin-bottom: 25px;
             }
             .password-box {
                 border: none;
                 padding: 30px;
                 border-radius: 25px;
-                background: rgba(255, 255, 255, 0.15);
-                box-shadow: 0px 8px 30px rgba(255, 64, 129, 0.6);
+                background: rgba(255, 255, 255, 0.1);
+                box-shadow: 0px 8px 30px rgba(255, 152, 0, 0.6);
                 text-align: center;
                 backdrop-filter: blur(20px);
+                font-size: 24px;
+                font-weight: bold;
             }
             .requirements {
-                background: rgba(255, 255, 255, 0.15);
+                background: rgba(255, 255, 255, 0.1);
                 padding: 20px;
                 border-radius: 15px;
-                box-shadow: 0px 6px 20px rgba(255, 64, 129, 0.4);
+                box-shadow: 0px 6px 20px rgba(255, 152, 0, 0.4);
                 backdrop-filter: blur(12px);
                 font-size: 18px;
+                color: #FFEB3B;
             }
             .container {
                 display: flex;
@@ -93,8 +96,8 @@ def main():
         strength, color, errors = check_password_strength(password)
         
         st.markdown(f"""
-            <div class='password-box'>
-                <p style='color:{color}; font-size:32px; font-weight:bold;'>PasswordStrength:{strength}</p>
+            <div class='password-box' style='color:{color};'>
+                PasswordStrength:{strength}
             </div>
         """, unsafe_allow_html=True)
         
