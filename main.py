@@ -1,5 +1,4 @@
-
-   import streamlit as st
+import streamlit as st
 import re
 import time
 
@@ -22,16 +21,16 @@ def check_password_strength(password):
     
     if passed_checks == 5:
         strength = "Very Strong"
-        color = "#4CAF50"  # Green
+        color = "#00C853"  # Bright Green
     elif passed_checks == 4:
         strength = "Strong"
-        color = "#8BC34A"  # Light Green
+        color = "#64DD17"  # Light Green
     elif passed_checks == 3:
         strength = "Moderate"
-        color = "#FFC107"  # Yellow
+        color = "#FFD600"  # Yellow
     else:
         strength = "Weak"
-        color = "#F44336"  # Red
+        color = "#D50000"  # Red
     
     return strength, color, errors
 
@@ -40,29 +39,32 @@ def main():
     st.markdown("""
         <style>
             body {
-                background-color: #1E1E2F;
-                font-family: Arial, sans-serif;
+                background: linear-gradient(135deg, #1E1E2F, #121212);
+                font-family: 'Poppins', sans-serif;
                 color: #EAEAEA;
             }
             .title {
                 text-align: center;
                 color: #FF4081;
-                font-size: 38px;
+                font-size: 42px;
                 font-weight: bold;
+                text-shadow: 2px 2px 10px rgba(255, 64, 129, 0.8);
             }
             .password-box {
-                border: 2px solid #FF4081;
-                padding: 15px;
-                border-radius: 12px;
-                background-color: #2E2E3E;
-                box-shadow: 2px 2px 15px rgba(255, 64, 129, 0.3);
+                border: none;
+                padding: 20px;
+                border-radius: 15px;
+                background: rgba(255, 255, 255, 0.1);
+                box-shadow: 0px 4px 20px rgba(255, 64, 129, 0.4);
                 text-align: center;
+                backdrop-filter: blur(10px);
             }
             .requirements {
-                background-color: #2E2E3E;
+                background: rgba(255, 255, 255, 0.1);
                 padding: 15px;
                 border-radius: 10px;
-                box-shadow: 2px 2px 12px rgba(255, 64, 129, 0.2);
+                box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.2);
+                backdrop-filter: blur(8px);
             }
         </style>
     """, unsafe_allow_html=True)
@@ -79,7 +81,7 @@ def main():
         
         st.markdown(f"""
             <div class='password-box'>
-                <p style='color:{color}; font-size:24px; font-weight:bold;'>Password Strength: {strength}</p>
+                <p style='color:{color}; font-size:26px; font-weight:bold;'>Password Strength: {strength}</p>
             </div>
         """, unsafe_allow_html=True)
         
