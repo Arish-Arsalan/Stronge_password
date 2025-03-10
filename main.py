@@ -1,5 +1,5 @@
 
-import streamlit as st
+   import streamlit as st
 import re
 import time
 
@@ -22,16 +22,16 @@ def check_password_strength(password):
     
     if passed_checks == 5:
         strength = "Very Strong"
-        color = "#008000"  # Dark Green
+        color = "#4CAF50"  # Green
     elif passed_checks == 4:
         strength = "Strong"
-        color = "#32CD32"  # Light Green
+        color = "#8BC34A"  # Light Green
     elif passed_checks == 3:
         strength = "Moderate"
-        color = "#FFA500"  # Orange
+        color = "#FFC107"  # Yellow
     else:
         strength = "Weak"
-        color = "#FF0000"  # Red
+        color = "#F44336"  # Red
     
     return strength, color, errors
 
@@ -40,28 +40,29 @@ def main():
     st.markdown("""
         <style>
             body {
-                background-color: #f4f4f4;
+                background-color: #1E1E2F;
                 font-family: Arial, sans-serif;
+                color: #EAEAEA;
             }
             .title {
                 text-align: center;
-                color: #2E86C1;
-                font-size: 36px;
+                color: #FF4081;
+                font-size: 38px;
                 font-weight: bold;
             }
             .password-box {
-                border: 2px solid #2E86C1;
+                border: 2px solid #FF4081;
                 padding: 15px;
                 border-radius: 12px;
-                background-color: white;
-                box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
+                background-color: #2E2E3E;
+                box-shadow: 2px 2px 15px rgba(255, 64, 129, 0.3);
                 text-align: center;
             }
             .requirements {
-                background-color: #fff;
+                background-color: #2E2E3E;
                 padding: 15px;
                 border-radius: 10px;
-                box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+                box-shadow: 2px 2px 12px rgba(255, 64, 129, 0.2);
             }
         </style>
     """, unsafe_allow_html=True)
