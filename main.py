@@ -21,16 +21,16 @@ def check_password_strength(password):
     
     if passed_checks == 5:
         strength = "Very Strong"
-        color = "#00C853"  # Bright Green
+        color = "#00C853"
     elif passed_checks == 4:
         strength = "Strong"
-        color = "#64DD17"  # Light Green
+        color = "#64DD17"
     elif passed_checks == 3:
         strength = "Moderate"
-        color = "#FFD600"  # Yellow
+        color = "#FFD600"
     else:
         strength = "Weak"
-        color = "#D50000"  # Red
+        color = "#D50000"
     
     return strength, color, errors
 
@@ -39,49 +39,62 @@ def main():
     st.markdown("""
         <style>
             body {
-                background: linear-gradient(135deg, #1E1E2F, #121212);
+                background: linear-gradient(135deg, #1E1E2F, #252542);
                 font-family: 'Poppins', sans-serif;
                 color: #EAEAEA;
             }
             .title {
                 text-align: center;
-                color: #FF4081;
-                font-size: 42px;
+                color: #00E5FF;
+                font-size: 48px;
                 font-weight: bold;
-                text-shadow: 2px 2px 10px rgba(255, 64, 129, 0.8);
+                text-shadow: 3px 3px 15px rgba(0, 229, 255, 0.9);
+                margin-bottom: 20px;
             }
             .password-box {
                 border: none;
-                padding: 20px;
-                border-radius: 15px;
+                padding: 25px;
+                border-radius: 20px;
                 background: rgba(255, 255, 255, 0.1);
-                box-shadow: 0px 4px 20px rgba(255, 64, 129, 0.4);
+                box-shadow: 0px 6px 25px rgba(0, 229, 255, 0.5);
                 text-align: center;
-                backdrop-filter: blur(10px);
+                backdrop-filter: blur(15px);
             }
             .requirements {
                 background: rgba(255, 255, 255, 0.1);
-                padding: 15px;
-                border-radius: 10px;
-                box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.2);
-                backdrop-filter: blur(8px);
+                padding: 18px;
+                border-radius: 12px;
+                box-shadow: 0px 4px 15px rgba(0, 229, 255, 0.3);
+                backdrop-filter: blur(10px);
+                font-size: 16px;
+            }
+            .container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                min-height: 80vh;
+            }
+            .input-box {
+                text-align: center;
+                margin-bottom: 20px;
             }
         </style>
     """, unsafe_allow_html=True)
     
-    st.markdown("<p class='title'>🔐 Password Strength Meter</p>", unsafe_allow_html=True)
+    st.markdown("<div class='container'><p class='title'>🔐 Password Strength Meter</p>", unsafe_allow_html=True)
     
-    password = st.text_input("Enter your password", type="password")
+    password = st.text_input("Enter your password", type="password", help="Must be at least 8 characters, with uppercase, lowercase, a number, and a special character.")
     
     if password:
         with st.spinner("Checking password strength..."):
-            time.sleep(1)  # Simulating processing delay
+            time.sleep(1)
         
         strength, color, errors = check_password_strength(password)
         
         st.markdown(f"""
             <div class='password-box'>
-                <p style='color:{color}; font-size:26px; font-weight:bold;'>Password Strength: {strength}</p>
+                <p style='color:{color}; font-size:30px; font-weight:bold;'>Password Strength: {strength}</p>
             </div>
         """, unsafe_allow_html=True)
         
@@ -94,6 +107,8 @@ def main():
             else:
                 st.markdown(f"✅ {requirement}")
         st.markdown("</div>", unsafe_allow_html=True)
+    
+    st.markdown("</div>", unsafe_allow_html=True)
     
 if __name__ == "__main__":
     main()
